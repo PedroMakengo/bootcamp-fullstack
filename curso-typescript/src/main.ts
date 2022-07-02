@@ -1,7 +1,6 @@
-// let message: string = "Hello World";
-// message = "1234";
+// any, void, never
+// let stock: any;
 
-let total: number;
-total = 10.6;
-
-console.log(total);
+function error(): never {
+  throw new Error("error");
+}

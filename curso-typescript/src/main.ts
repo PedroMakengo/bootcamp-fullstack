@@ -1,6 +1,3 @@
-// any, void, never
-// let stock: any;
+const inputName = document.querySelector("#name") as HTMLInputElement;
 
-function error(): never {
-  throw new Error("error");
-}
+inputName.value;

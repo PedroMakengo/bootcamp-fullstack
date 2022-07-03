@@ -1,3 +1,9 @@
-const inputName = document.querySelector("#name") as HTMLInputElement;
+interface Post {
+  id: number;
+  title: string;
+  description: string;
+}
 
-inputName.value;
+type PostPreview = Omit<Post, "id" | "title">;
+
+let post: PostPreview;

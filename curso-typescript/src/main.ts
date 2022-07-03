@@ -1,9 +1,3 @@
-interface Post {
-  id: number;
-  title: string;
-  description: string;
-}
+import { sum } from "./calculator.js";
 
-type PostPreview = Omit<Post, "id" | "title">;
-
-let post: PostPreview;
+console.log(sum(5, 5));

@@ -1,10 +1,11 @@
 import express from "express";
-
+import cors from "cors";
 import { v4 as uuid } from "uuid";
 
 const app = express();
 
 app.use(express.json());
+app.use(cors({ origin: "*" }));
 
 interface User {
   id: string;
@@ -32,7 +33,7 @@ app.put("/users/:id", (request, response) => {
   const { id } = request.params;
   const { name, email } = request.body;
 
-  const userIndex = users.findIndex((user) => user.id === id);
+  const userIndex = users.findIndex(user => user.id === id);
   if (userIndex < 0) {
     return response.status(404).json({ error: "User not found." });
   }
@@ -47,7 +48,7 @@ app.delete("/users/:id", (request, response) => {
   const { id } = request.params;
 
   // Verificar se existe um usuário
-  const userIndex = users.findIndex((user) => user.id === id);
+  const userIndex = users.findIndex(user => user.id === id);
   if (userIndex < 0) {
     return response.status(404).json({ error: "User not found" });
   }

@@ -7,10 +7,11 @@ body {
 
 .container {
   height: 100%;
-
   display: grid;
+
   grid-template-columns: 600px;
   grid-template-rows: auto;
+
   justify-content: center;
   align-items: center;
 }
@@ -21,13 +22,14 @@ body {
 
   display: grid;
   grid-template-columns: auto 1fr;
-  padding: 0.5rem 1rem;
   align-items: center;
+
+  padding: 0.5rem 1rem;
 }
 
 .logo {
   font-weight: bold;
-  text-transform: uppercase;
+  transform: uppercase;
 }
 
 .navegation {
@@ -35,5 +37,5 @@ body {
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
-  grid-gap: 1.5rem;
+  grid-gap: 2rem;
 }

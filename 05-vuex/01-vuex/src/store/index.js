@@ -13,9 +13,9 @@ export default createStore({
   actions: {
     fetchTodos(context) {
       const todos = [
-        { id: 1, text: "Conceitos Vuex", done: true },
-        { id: 2, text: "Atomic Design", done: false },
-        { id: 3, text: "Começar com Nuxt", done: false },
+        { id: 1, text: "Atomic Design", done: true },
+        { id: 2, text: "Design Web", done: false },
+        { id: 3, text: "Atomic Design", done: true },
       ];
 
       context.commit("SET_TODOS", todos);
@@ -24,9 +24,6 @@ export default createStore({
   getters: {
     $allTodos(state) {
       return state.todos;
-    },
-    $doneTodos(state) {
-      return state.todos.filter(todo => todo.done);
     },
   },
 });

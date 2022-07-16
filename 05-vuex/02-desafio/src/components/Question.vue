@@ -1,10 +1,10 @@
 <template>
   <div class="faq">
-    <div class="col-a">
+    <header class="col-a">
       <img src="@/assets/images/astronaut.svg" alt="" />
       <h2>Perguntas frequentes</h2>
       <p>Escolha a categoria desejada</p>
-    </div>
+    </header>
 
     <ul class="itens">
       <li>

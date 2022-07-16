@@ -31,15 +31,12 @@
 .faq {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1rem;
   padding-inline: 1rem;
+  grid-gap: 2rem;
 }
 
 .faq .col-a {
-  background: red;
-
-  padding: 0;
+  height: 80%;
   padding-inline: 2rem;
 }
 
@@ -48,8 +45,6 @@
   grid-template-columns: 2fr;
   grid-template-rows: auto;
   grid-gap: 0.5rem;
-
-  background: red;
 }
 
 .faq .itens li {

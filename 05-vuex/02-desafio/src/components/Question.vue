@@ -62,14 +62,14 @@
 
 .faq .itens li:hover {
   width: 100%;
-  background: #31373f;
+  background: #3f4452;
   transition: all 0.5s;
 
   border-radius: 0.2rem;
 }
 
 .faq .itens li span {
-  font-weight: 500;
+  font-weight: 400;
   margin-left: 0.8rem;
 }
 

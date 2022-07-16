@@ -13,7 +13,7 @@ import ResponseQuestion from "@/components/ResponseQuestion.vue";
 export default {
   data() {
     return {
-      view: "Question",
+      view: "QuestionList",
     };
   },
   components: {
@@ -43,7 +43,8 @@ export default {
   margin: 0 auto;
   border-radius: 0.5rem;
 
-  background: #292d30;
+  /* background: #333844; */
+  background-image: linear-gradient(180deg, #3f4452, #26282c);
 
   color: #fff;
   padding-block: 2rem;

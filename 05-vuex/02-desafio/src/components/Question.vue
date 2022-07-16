@@ -7,25 +7,32 @@
     </header>
 
     <ul class="itens">
-      <li>
-        <img src="@/assets/images/rocket.svg" alt="" />
-        <span>Basecamp</span>
-      </li>
-      <li>
-        <img src="@/assets/images/astronaut-helmet.svg" alt="" />
-        <span>Bootcamp</span>
-      </li>
-      <li>
-        <img src="@/assets/images/student-hat.svg" alt="" />
-        <span>Cataline</span>
-      </li>
-      <li>
-        <img src="@/assets/images/partnership.svg" alt="" />
-        <span>Parcerias</span>
+      <li v-for="question in $allCategories" :key="question.id">
+        <img :src="getIcon(question)" alt="" />
+        <span>{{ question.title }}</span>
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    $allCategories() {
+      return this.$store.getters.$allCategories;
+    },
+  },
+  created() {
+    this.$store.dispatch("fetchCategories");
+  },
+
+  methods: {
+    getIcon(category) {
+      return require(`@/assets/images/${category.icon}`);
+    },
+  },
+};
+</script>
 
 <style scoped>
 .faq {

@@ -13,7 +13,7 @@ import ResponseQuestion from "@/components/ResponseQuestion.vue";
 export default {
   data() {
     return {
-      view: "QuestionList",
+      view: "Question",
     };
   },
   components: {

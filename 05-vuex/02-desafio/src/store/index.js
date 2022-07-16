@@ -1,29 +1,26 @@
 /* eslint-disable prettier/prettier */
 import { createStore } from "vuex";
+import { faqCategories } from "@/utils/db.json";
 
 export default createStore({
   state: {
-    todos: [],
+    categories: [],
   },
   mutations: {
-    SET_TODOS(state, todos) {
-      state.todos = todos;
+    SET_TODOS(state, question) {
+      state.categories = question;
     },
   },
   actions: {
-    fetchTodos(context) {
-      const todos = [
-        { id: 1, text: "Atomic Design", done: true },
-        { id: 2, text: "Design Web", done: false },
-        { id: 3, text: "Atomic Design", done: true },
-      ];
+    fetchCategories(context) {
+      const question = faqCategories;
 
-      context.commit("SET_TODOS", todos);
+      context.commit("SET_TODOS", question);
     },
   },
   getters: {
-    $allTodos(state) {
-      return state.todos;
+    $allCategories(state) {
+      return state.categories;
     },
   },
 });

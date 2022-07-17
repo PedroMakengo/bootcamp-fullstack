@@ -1,7 +1,9 @@
 <template>
   <section class="section">
     <div class="card">
-      <component :is="$currentView" />
+      <transition name="fade" appear mode="out-in">
+        <component :is="$currentView" />
+      </transition>
     </div>
   </section>
 </template>
@@ -54,5 +56,15 @@ export default {
 
   color: #fff;
   padding-block: 2rem;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 </style>

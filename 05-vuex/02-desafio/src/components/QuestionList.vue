@@ -46,6 +46,7 @@ export default {
     getCurrentComponent(component, id) {
       this.$store.dispatch("fetchComponent", component);
       this.$store.dispatch("fetchResponse", id);
+      this.$store.dispatch("fetchQuestionDetails", id);
     },
     getImage(image) {
       return require(`@/assets/images/${image}`);

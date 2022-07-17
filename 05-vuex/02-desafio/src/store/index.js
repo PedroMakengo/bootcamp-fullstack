@@ -9,6 +9,7 @@ export default createStore({
     questions: [],
     responses: "",
     details: {},
+    questionDetails: {},
   },
 
   mutations: {
@@ -29,6 +30,9 @@ export default createStore({
     },
     SET_DETALHES_INFORMATION(state, payload) {
       state.details = payload;
+    },
+    SET_DETAILS_QUESTIONS(state, payload) {
+      state.questionDetails = payload;
     },
   },
   actions: {
@@ -71,9 +75,19 @@ export default createStore({
       const faq = faqCategories;
       for (let category of faq) {
         if (category.title === categories) {
-          console.log(category);
           let detailsCategories = category;
           context.commit("SET_DETALHES_INFORMATION", detailsCategories);
+        }
+      }
+    },
+    fetchQuestionDetails(context, idQuestion) {
+      const faq = faqCategories;
+      for (let newQuestionList of faq) {
+        let questions = newQuestionList.questions;
+        for (let question of questions) {
+          if (question.id === idQuestion) {
+            context.commit("SET_DETAILS_QUESTIONS", question.title);
+          }
         }
       }
     },
@@ -93,6 +107,9 @@ export default createStore({
     },
     $details(state) {
       return state.details;
+    },
+    $detailsQuestions(state) {
+      return state.questionDetails;
     },
   },
 });

@@ -5,7 +5,7 @@
         <img src="@/assets/images/arrow-left.svg" alt="Arrow Left" />
       </a>
       <div class="header-title">
-        <p>Basecamp é pra mim ?</p>
+        <p>{{ $detailsQuestions }}</p>
       </div>
     </header>
 
@@ -20,6 +20,9 @@ export default {
   computed: {
     $response() {
       return this.$store.getters.$response;
+    },
+    $detailsQuestions() {
+      return this.$store.getters.$detailsQuestions;
     },
   },
   created() {

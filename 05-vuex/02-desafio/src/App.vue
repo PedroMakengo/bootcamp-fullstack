@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="card">
-      <component :is="view" />
+      <component :is="$currentView" />
     </div>
   </section>
 </template>
@@ -11,11 +11,16 @@ import Question from "@/components/Question.vue";
 import QuestionList from "@/components/QuestionList.vue";
 import ResponseQuestion from "@/components/ResponseQuestion.vue";
 export default {
-  data() {
-    return {
-      view: "Question",
-    };
+  computed: {
+    $currentView() {
+      return this.$store.getters.$currentView;
+    },
   },
+
+  created() {
+    this.$store.dispatch("fetchComponent", "Question");
+  },
+
   components: {
     Question,
     QuestionList,

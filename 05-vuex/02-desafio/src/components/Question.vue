@@ -7,7 +7,11 @@
     </header>
 
     <ul class="itens">
-      <li v-for="question in $allCategories" :key="question.id">
+      <li
+        v-for="question in $allCategories"
+        :key="question.id"
+        @click="getQuestions(question.title)"
+      >
         <img :src="getIcon(question)" alt="" />
         <span>{{ question.title }}</span>
       </li>
@@ -30,6 +34,11 @@ export default {
   methods: {
     getIcon(category) {
       return require(`@/assets/images/${category.icon}`);
+    },
+
+    getQuestions(category) {
+      this.$store.dispatch("fetchComponent", "QuestionList");
+      this.$store.dispatch("fetchUniqueQuestion", category);
     },
   },
 };

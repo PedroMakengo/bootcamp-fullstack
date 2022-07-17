@@ -14,7 +14,7 @@
       <li
         v-for="question in $allQuestions"
         :key="question.id"
-        @click="getCurrentComponent('ResponseQuestion')"
+        @click="getCurrentComponent('ResponseQuestion', question.id)"
       >
         {{ question.title }}
       </li>
@@ -28,14 +28,18 @@ export default {
     $allQuestions() {
       return this.$store.getters.$allQuestions;
     },
+    $allCategories() {
+      return this.$store.getters.$allCategories;
+    },
   },
   created() {
     this.$store.dispatch("fetchUniqueQuestion");
   },
 
   methods: {
-    getCurrentComponent(component) {
+    getCurrentComponent(component, id) {
       this.$store.dispatch("fetchComponent", component);
+      this.$store.dispatch("fetchResponse", id);
     },
   },
 };

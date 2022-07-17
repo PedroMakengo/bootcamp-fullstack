@@ -7,6 +7,7 @@ export default createStore({
     view: "Question",
     categories: [],
     questions: [],
+    responses: "",
   },
 
   mutations: {
@@ -19,6 +20,9 @@ export default createStore({
 
     SET_NEW_COMPONENT_DISPLAY(state, payload) {
       state.view = payload;
+    },
+    SET_RESPONSE(state, payload) {
+      state.responses = payload;
     },
   },
   actions: {
@@ -42,6 +46,20 @@ export default createStore({
         }
       }
     },
+
+    fetchResponse(context, id) {
+      const faqResponse = faqCategories;
+
+      for (let response of faqResponse) {
+        let questions = response.questions;
+        for (let response of questions) {
+          if (response.id === id) {
+            let content = response.content;
+            context.commit("SET_RESPONSE", content);
+          }
+        }
+      }
+    },
   },
   getters: {
     $allCategories(state) {
@@ -52,6 +70,9 @@ export default createStore({
     },
     $currentView(state) {
       return state.view;
+    },
+    $response(state) {
+      return state.responses;
     },
   },
 });

@@ -1,14 +1,44 @@
 <template>
   <div class="template">
     <header class="header">
-      <a href="#" @click="getCurrentComponent('Question')">
+      <a href="#" @click="getCurrentComponent('QuestionList')">
         <img src="@/assets/images/arrow-left.svg" alt="Arrow Left" />
       </a>
       <div class="header-title">
-        <h2>Basecamp</h2>
-        <p>Selecione uma pergunta</p>
+        <p>Basecamp é pra mim ?</p>
       </div>
-      <img src="@/assets/images/rocket.svg" alt="" />
     </header>
+
+    <div class="response">
+      <p>{{ getHtml($response) }}</p>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    $response() {
+      return this.$store.getters.$response;
+    },
+  },
+  created() {
+    this.$store.dispatch("fetchResponse");
+  },
+  methods: {
+    getCurrentComponent(component) {
+      this.$store.dispatch("fetchComponent", component);
+    },
+
+    getHtml(response) {
+      return response;
+    },
+  },
+};
+</script>
+
+<style>
+.response {
+  margin-top: 3rem;
+}
+</style>

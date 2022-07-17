@@ -10,7 +10,7 @@
     </header>
 
     <div class="response">
-      <p>{{ getHtml($response) }}</p>
+      <p>{{ $response }}</p>
     </div>
   </div>
 </template>
@@ -28,10 +28,6 @@ export default {
   methods: {
     getCurrentComponent(component) {
       this.$store.dispatch("fetchComponent", component);
-    },
-
-    getHtml(response) {
-      return response;
     },
   },
 };

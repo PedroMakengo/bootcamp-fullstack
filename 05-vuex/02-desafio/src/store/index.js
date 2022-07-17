@@ -8,6 +8,7 @@ export default createStore({
     categories: [],
     questions: [],
     responses: "",
+    infos: [],
   },
 
   mutations: {
@@ -23,6 +24,9 @@ export default createStore({
     },
     SET_RESPONSE(state, payload) {
       state.responses = payload;
+    },
+    SET_INFO_QUESTIONS(state, payload) {
+      state.infos = payload;
     },
   },
   actions: {
@@ -59,6 +63,11 @@ export default createStore({
           }
         }
       }
+    },
+
+    fetchInfo(context, categories) {
+      console.log(categories + " Aqui");
+      context.commit("SET_INFO_QUESTIONS", categories);
     },
   },
   getters: {

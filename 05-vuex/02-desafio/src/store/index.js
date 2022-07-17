@@ -8,13 +8,14 @@ export default createStore({
     categories: [],
     questions: [],
     responses: "",
-    infos: [],
+    details: {},
   },
 
   mutations: {
     SET_CATEGORIES(state, categories) {
       state.categories = categories;
     },
+
     SET_QUESTIONS(state, questions) {
       state.questions = questions;
     },
@@ -22,11 +23,12 @@ export default createStore({
     SET_NEW_COMPONENT_DISPLAY(state, payload) {
       state.view = payload;
     },
+
     SET_RESPONSE(state, payload) {
       state.responses = payload;
     },
-    SET_INFO_QUESTIONS(state, payload) {
-      state.infos = payload;
+    SET_DETALHES_INFORMATION(state, payload) {
+      state.details = payload;
     },
   },
   actions: {
@@ -65,9 +67,15 @@ export default createStore({
       }
     },
 
-    fetchInfo(context, categories) {
-      console.log(categories + " Aqui");
-      context.commit("SET_INFO_QUESTIONS", categories);
+    fetchUniqueDetails(context, categories) {
+      const faq = faqCategories;
+      for (let category of faq) {
+        if (category.title === categories) {
+          console.log(category);
+          let detailsCategories = category;
+          context.commit("SET_DETALHES_INFORMATION", detailsCategories);
+        }
+      }
     },
   },
   getters: {
@@ -82,6 +90,9 @@ export default createStore({
     },
     $response(state) {
       return state.responses;
+    },
+    $details(state) {
+      return state.details;
     },
   },
 });

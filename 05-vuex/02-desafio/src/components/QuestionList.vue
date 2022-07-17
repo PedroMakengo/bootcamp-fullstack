@@ -5,10 +5,10 @@
         <img src="@/assets/images/arrow-left.svg" alt="Arrow Left" />
       </a>
       <div class="header-title">
-        <h2>Testando</h2>
+        <h2>{{ $details.title }}</h2>
         <p>Selecione uma pergunta</p>
       </div>
-      <img src="@/assets/images/rocket.svg" alt="" />
+      <img :src="getImage($details.icon)" alt="" />
     </header>
     <ul class="faq-list">
       <li
@@ -31,6 +31,12 @@ export default {
     $allCategories() {
       return this.$store.getters.$allCategories;
     },
+    $informationCategories() {
+      return this.$store.getters.$informationCategories;
+    },
+    $details() {
+      return this.$store.getters.$details;
+    },
   },
   created() {
     this.$store.dispatch("fetchUniqueQuestion");
@@ -40,6 +46,9 @@ export default {
     getCurrentComponent(component, id) {
       this.$store.dispatch("fetchComponent", component);
       this.$store.dispatch("fetchResponse", id);
+    },
+    getImage(image) {
+      return require(`@/assets/images/${image}`);
     },
   },
 };

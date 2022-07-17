@@ -39,6 +39,7 @@ export default {
     getQuestions(category) {
       this.$store.dispatch("fetchComponent", "QuestionList");
       this.$store.dispatch("fetchUniqueQuestion", category);
+      this.$store.dispatch("fetchUniqueDetails", category);
     },
   },
 };

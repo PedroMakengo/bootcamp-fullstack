@@ -1,7 +1,7 @@
 <template>
   <div class="template">
     <header class="header">
-      <a href="#">
+      <a href="#" @click="getCurrentComponent('Question')">
         <img src="@/assets/images/arrow-left.svg" alt="Arrow Left" />
       </a>
       <div class="header-title">
@@ -10,20 +10,54 @@
       </div>
       <img src="@/assets/images/rocket.svg" alt="" />
     </header>
-    <div class="faq-list">
-      <h1>Trabalhando</h1>
-    </div>
+    <ul class="faq-list">
+      <li
+        v-for="question in $allQuestions"
+        :key="question.id"
+        @click="getCurrentComponent('ResponseQuestion')"
+      >
+        {{ question.title }}
+      </li>
+    </ul>
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    $allQuestions() {
+      return this.$store.getters.$allQuestions;
+    },
+  },
+  created() {
+    this.$store.dispatch("fetchUniqueQuestion");
+  },
+
+  methods: {
+    getCurrentComponent(component) {
+      this.$store.dispatch("fetchComponent", component);
+    },
+  },
+};
+</script>
+
 <style scoped>
-.template {
-  padding-inline: 2rem;
+.faq-list {
+  margin-top: 2rem;
 }
 
-header {
+.faq-list li {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-gap: 1rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.faq-list li:hover {
+  background: #3f4452;
+  transition: all 0.5s;
+
+  border-radius: 0.2rem;
 }
 </style>

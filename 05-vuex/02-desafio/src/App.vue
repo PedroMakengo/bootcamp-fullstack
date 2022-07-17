@@ -10,6 +10,7 @@
 import Question from "@/components/Question.vue";
 import QuestionList from "@/components/QuestionList.vue";
 import ResponseQuestion from "@/components/ResponseQuestion.vue";
+
 export default {
   computed: {
     $currentView() {

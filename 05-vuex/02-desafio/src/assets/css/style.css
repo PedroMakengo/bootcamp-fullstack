@@ -30,3 +30,25 @@ ul {
   font-weight: 700;
   font-display: block;
 }
+
+.template {
+  padding-inline: 2rem;
+  min-height: 72vh;
+}
+
+.template header {
+  display: grid;
+  grid-template-columns: auto 1fr 30px;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 1rem;
+}
+.template header a {
+  background: #3f4452;
+  padding: 0.4rem;
+
+  border-radius: 0.3rem;
+}
+.template header img {
+  width: 100%;
+}

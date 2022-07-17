@@ -47,6 +47,9 @@ export default createStore({
     $allCategories(state) {
       return state.categories;
     },
+    $allQuestions(state) {
+      return state.questions;
+    },
     $currentView(state) {
       return state.view;
     },

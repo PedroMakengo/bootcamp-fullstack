@@ -8,12 +8,12 @@
 
     <ul class="itens">
       <li
-        v-for="question in $allCategories"
-        :key="question.id"
-        @click="getQuestions(question.title)"
+        v-for="categories in $allCategories"
+        :key="categories.id"
+        @click="getQuestions(categories.title)"
       >
-        <img :src="getIcon(question)" alt="" />
-        <span>{{ question.title }}</span>
+        <img :src="getIcon(categories)" alt="" />
+        <span>{{ categories.title }}</span>
       </li>
     </ul>
   </div>
@@ -78,7 +78,6 @@ export default {
 }
 
 .faq .itens li:hover {
-  width: 100%;
   background: #3f4452;
   transition: all 0.5s;
 

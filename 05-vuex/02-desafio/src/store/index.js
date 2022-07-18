@@ -13,12 +13,12 @@ export default createStore({
   },
 
   mutations: {
-    SET_CATEGORIES(state, categories) {
-      state.categories = categories;
+    SET_CATEGORIES(state, payload) {
+      state.categories = payload;
     },
 
-    SET_QUESTIONS(state, questions) {
-      state.questions = questions;
+    SET_QUESTIONS(state, payload) {
+      state.questions = payload;
     },
 
     SET_NEW_COMPONENT_DISPLAY(state, payload) {
@@ -36,28 +36,28 @@ export default createStore({
     },
   },
   actions: {
-    fetchComponent(context, component) {
+    fetchComponent({ commit }, component) {
       const viewCurrent = component;
-      context.commit("SET_NEW_COMPONENT_DISPLAY", viewCurrent);
+      commit("SET_NEW_COMPONENT_DISPLAY", viewCurrent);
     },
 
-    fetchCategories(context) {
+    fetchCategories({ commit }) {
       const categories = faqCategories;
-      context.commit("SET_CATEGORIES", categories);
+      commit("SET_CATEGORIES", categories);
     },
 
-    fetchUniqueQuestion(context, categories) {
+    fetchUniqueQuestion({ commit }, categories) {
       const faqQuestions = faqCategories;
 
       for (let question of faqQuestions) {
         if (question.title === categories) {
           let searchQuestion = question.questions;
-          context.commit("SET_QUESTIONS", searchQuestion);
+          commit("SET_QUESTIONS", searchQuestion);
         }
       }
     },
 
-    fetchResponse(context, id) {
+    fetchResponse({ commit }, id) {
       const faqResponse = faqCategories;
 
       for (let response of faqResponse) {
@@ -65,28 +65,28 @@ export default createStore({
         for (let response of questions) {
           if (response.id === id) {
             let content = response.content;
-            context.commit("SET_RESPONSE", content);
+            commit("SET_RESPONSE", content);
           }
         }
       }
     },
 
-    fetchUniqueDetails(context, categories) {
+    fetchUniqueDetails({ commit }, categories) {
       const faq = faqCategories;
       for (let category of faq) {
         if (category.title === categories) {
           let detailsCategories = category;
-          context.commit("SET_DETALHES_INFORMATION", detailsCategories);
+          commit("SET_DETALHES_INFORMATION", detailsCategories);
         }
       }
     },
-    fetchQuestionDetails(context, idQuestion) {
+    fetchQuestionDetails({ commit }, idQuestion) {
       const faq = faqCategories;
       for (let newQuestionList of faq) {
         let questions = newQuestionList.questions;
         for (let question of questions) {
           if (question.id === idQuestion) {
-            context.commit("SET_DETAILS_QUESTIONS", question.title);
+            commit("SET_DETAILS_QUESTIONS", question.title);
           }
         }
       }

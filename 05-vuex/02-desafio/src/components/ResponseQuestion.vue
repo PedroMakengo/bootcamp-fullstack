@@ -5,12 +5,12 @@
         <img src="@/assets/images/arrow-left.svg" alt="Arrow Left" />
       </a>
       <div class="header-title">
-        <p>{{ $detailsQuestions }}</p>
+        <p v-html="$detailsQuestions"></p>
       </div>
     </header>
 
     <div class="response">
-      <p>{{ $response }}</p>
+      <p v-html="$response"></p>
     </div>
   </div>
 </template>

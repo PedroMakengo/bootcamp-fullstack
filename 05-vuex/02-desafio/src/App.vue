@@ -45,7 +45,7 @@ export default {
 }
 
 .card {
-  width: 25%;
+  width: 90%;
 
   display: grid;
   margin: 0 auto;
@@ -66,5 +66,11 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: 25%;
+  }
 }
 </style>

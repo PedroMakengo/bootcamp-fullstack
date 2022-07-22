@@ -1,16 +1,16 @@
 <template>
   <div class="component">
-    <SocialNetworks />
+    <Header />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { SocialNetworks } from "@/components/molecules";
+import { Header } from "@/components/organisms";
 
 export default defineComponent({
   components: {
-    SocialNetworks,
+    Header,
   },
 });
 </script>

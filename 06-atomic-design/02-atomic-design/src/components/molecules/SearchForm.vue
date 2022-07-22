@@ -3,7 +3,7 @@
     <input type="search" placeholder="Buscar" />
 
     <button type="submit">
-      <img src="search.svg" alt="Buscar" />
+      <img src="@/assets/images/icons/search.svg" alt="Buscar" />
     </button>
   </form>
 </template>

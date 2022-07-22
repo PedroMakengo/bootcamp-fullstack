@@ -1,5 +1,5 @@
 <template>
-  <div class="services">
+  <div class="service">
     <h2 class="title">{{ title }}</h2>
     <p class="description">{{ description }}</p>
   </div>
@@ -17,7 +17,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.services {
+.service {
   .title {
     color: #935e92;
     font-weight: bold;

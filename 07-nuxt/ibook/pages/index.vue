@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <h2>Home</h2>
-  </div>
+  <div class="box"></div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  layout: 'dashboard',
-})
-</script>
+<style lang="scss" scoped>
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: color('light', 'darkest');
+}
+</style>

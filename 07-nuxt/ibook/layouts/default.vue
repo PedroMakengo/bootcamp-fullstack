@@ -1,5 +1,3 @@
 <template>
-  <div class="cataline">
-    <Nuxt />
-  </div>
+  <Nuxt />
 </template>

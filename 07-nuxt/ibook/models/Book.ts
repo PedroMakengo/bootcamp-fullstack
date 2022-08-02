@@ -15,7 +15,7 @@ export interface Book {
   releaseDate: string
   title: string
   description: string
-  cover: string
+  imageLink: string
   categories: Category[]
   pages: Page[]
 }

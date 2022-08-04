@@ -1,5 +1,7 @@
 <template>
-  <div class="book-details-template"></div>
+  <div class="book-details-template">
+    <BookDetails />
+  </div>
 </template>
 
 <script lang="ts">

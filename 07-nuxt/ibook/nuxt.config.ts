@@ -40,7 +40,7 @@ export default {
   },
 
   axios: {
-    baseURL: 'https://ibook-api.herokuapp.com',
+    baseURL: 'https://arnon-ibook.herokuapp.com',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

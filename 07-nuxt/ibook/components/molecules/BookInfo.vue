@@ -3,6 +3,20 @@
     <h2>{{ $book.title }}</h2>
 
     <div class="book-description" v-html="$book.description"></div>
+    <BookCategories />
+
+    <div class="book-release-details">
+      <ul>
+        <li>
+          <p>Lançamento</p>
+          <p>{{ $book.releaseDate }}</p>
+        </li>
+        <li>
+          <p>Author</p>
+          <p>{{ $book.author }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -19,4 +33,30 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.book-info {
+  .book-title {
+    margin-bottom: 2rem;
+  }
+  .book-description {
+    line-height: 1.625rem;
+  }
+  .book-categories {
+    margin-top: 2rem;
+  }
+  .book-release-details {
+    margin-top: 1rem;
+    ul {
+      display: grid;
+      grid-gap: 0.65rem;
+
+      li {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        font-weight: 700;
+        font-size: 13px;
+      }
+    }
+  }
+}
+</style>

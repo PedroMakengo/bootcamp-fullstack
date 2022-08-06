@@ -6,7 +6,7 @@
 </template>
 
 <style lang="scss" scoped>
-.books-details {
+.book-details {
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-gap: 1.4rem;

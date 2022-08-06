@@ -2,7 +2,9 @@
   <div class="book-cover">
     <img :src="$book.cover" :alt="`Capa do livro ${$book.title}`" />
 
-    <NuxtLink :to="`/book/${$book.id}`" class="read-book"> Ler livro</NuxtLink>
+    <NuxtLink :to="`/book/read/${$book.id}`" class="read-book">
+      Ler livro</NuxtLink
+    >
   </div>
 </template>
 

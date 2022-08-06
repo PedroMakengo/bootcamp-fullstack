@@ -16,7 +16,7 @@ export default class Books extends VuexModule {
   }
 
   public get $single() {
-    return this.books
+    return this.book
   }
 
   @Mutation

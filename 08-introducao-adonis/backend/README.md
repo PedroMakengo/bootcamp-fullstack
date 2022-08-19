@@ -13,7 +13,7 @@ $ docker-compose up -d
 $ node ace migration:run
 
 # install dependencies
-$ npm install
+$ npm installg
 $ yarn
 
 #server with changes watcher

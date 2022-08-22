@@ -3,7 +3,7 @@ import Post from 'App/Models/Post'
 
 export default class PostsController {
   public async index({}: HttpContextContract) {
-    const posts = await Post.all()
+    const posts = await Post.query().orderBy('id')
 
     return posts
   }
@@ -27,6 +27,8 @@ export default class PostsController {
 
     post.merge(data)
     await post.save()
+
+    return post
   }
 
   public async destroy({ params }: HttpContextContract) {
@@ -34,6 +36,4 @@ export default class PostsController {
 
     await post.delete()
   }
-
-  // 1. relax
 }

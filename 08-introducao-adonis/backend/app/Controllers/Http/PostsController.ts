@@ -34,4 +34,6 @@ export default class PostsController {
 
     await post.delete()
   }
+
+  // 1. relax
 }

@@ -6,7 +6,7 @@ export default class Posts extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('title').notNullable()
+      table.string('title').notNullable().unique()
       table.text('content', 'longtext').notNullable()
       table.timestamps(true)
     })

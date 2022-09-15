@@ -14,3 +14,35 @@ services:
     expose:
       - '3307'
  
+
+Saudações Pessoal !
+
+Estou de volta, para partilhar com todos sobre "Achievements" no github, ultimamente tenho recebido várias mensagem de alguns amigos perguntando para mim como eu fiz para conquistar os mesmos.
+
+
+
+Bem primeiramente como a maior parte sabe, eu tenho me dedicado bastante afim de manter sempre os meus códigos versionados e para tal uso constantemente o github para versionar o meu código e também claro hospedar usando o github-pages em alguns casos.
+
+
+
+Esse não é o caso do meu post de hoje, vamos ao que interessa existem vários tipos de conquistas "Achievements" mais hoje iremos abordar daqueles que eu ganhei nos últimos meses.
+
+
+
+1. Galaxy Brain - 2 accepted answers
+
+2. Pair Extraordinaire - Coauthored in a merged pull request
+
+3. Yolo - You want it? You merge it.
+
+4. Pull Shark - opened pull requests that have been merged.
+
+
+
+Para mais informações podes acompanhar este repositório:
+
+https://github.com/Schweinepriester/github-profile-achievements
+
+
+
+#github #Desenvolvimento #PartilhaDeConhecimento #Tecnologia #achievements #merge 

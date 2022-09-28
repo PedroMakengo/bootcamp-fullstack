@@ -36,5 +36,5 @@ export default class User extends BaseModel {
   }
 
   @hasMany(() => UserKey)
-  public key: HasMany<typeof UserKey>
+  public keys: HasMany<typeof UserKey>
 }

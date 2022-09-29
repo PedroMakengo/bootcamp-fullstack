@@ -10,13 +10,14 @@ export default class UserRegisterController {
 
     await user.save()
 
-    const key = faker.datatype.uuid()
+    const key = faker.datatype.uuid() + new Date().getTime()
 
     user.related('keys').create({ key })
 
     const link = `${redirectUrl.replace(/\/$/, '')}/${key}`
 
     // envio do e-mail
+    console.log(link)
   }
 
   public async show({}: HttpContextContract) {}

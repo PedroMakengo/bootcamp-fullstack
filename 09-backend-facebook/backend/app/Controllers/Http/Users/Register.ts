@@ -1,7 +1,9 @@
+import { faker } from '@faker-js/faker'
+import Mail from '@ioc:Adonis/Addons/Mail'
+
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { StoreValidator } from 'App/Validators/User/Register'
 import { User } from 'App/Models'
-import { faker } from '@faker-js/faker'
 
 export default class UserRegisterController {
   public async store({ request }: HttpContextContract) {
@@ -17,12 +19,12 @@ export default class UserRegisterController {
     const link = `${redirectUrl.replace(/\/$/, '')}/${key}`
 
     // envio do e-mail
-    // await Mail.send((message) => {
-    //   message.to(email)
-    //   message.from('contato@facebook.com', 'Facebook')
-    //   message.subject('Criação de conta')
-    //   message.htmlView('emails/register', { link })
-    // })
+    await Mail.send((message) => {
+      message.to(email)
+      message.from('contato@facebook.com', 'Facebook')
+      message.subject('Criação de conta')
+      message.htmlView('emails/register', { link })
+    })
   }
 
   public async show({}: HttpContextContract) {}

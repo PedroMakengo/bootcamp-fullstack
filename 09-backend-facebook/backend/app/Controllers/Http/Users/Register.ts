@@ -4,6 +4,7 @@ import Mail from '@ioc:Adonis/Addons/Mail'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { StoreValidator, UpdateValitador } from 'App/Validators/User/Register'
 import { User, UserKey } from 'App/Models'
+import { Response } from '@adonisjs/core/build/standalone'
 
 export default class UserRegisterController {
   public async store({ request }: HttpContextContract) {
@@ -33,13 +34,21 @@ export default class UserRegisterController {
     return user
   }
 
-  public async update({ request }: HttpContextContract) {
+  public async update({ request, response }: HttpContextContract) {
     const { key, name, password } = await request.validate(UpdateValitador)
 
     const userKey = await UserKey.findByOrFail('key', key)
 
     const user = await userKey.related('user').query().firstOrFail()
 
-    user.merge({ name, password })
+    const username = name.split(' ')[0].toLocaleLowerCase() + new Date().getTime()
+
+    user.merge({ name, password, username })
+
+    await user.save()
+
+    await userKey.delete()
+
+    return response.ok({ message: 'Ok' })
   }
 }

@@ -5,7 +5,6 @@ export default class AuthController {
   public async store({ request, auth }: HttpContextContract) {
     const { email, password } = await request.validate(StoreValidator)
 
-    // Criando uma tentativa de login
     const token = await auth.attempt(email, password, {
       expiresIn: '30 days',
     })
